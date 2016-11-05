@@ -1,23 +1,9 @@
-# Mesosfer PHP #
+# Query Data #
 
-There are several php functions in Mesosfer cloud platform including user management, data management, and data query. 
+This is sample code for querying data in Mesosfer Backend with PHP. 
 For more information about Mesosfer and its features, see [Mesosfer Website][mesosfer.com] and [Mesosfer Documentations][docs].
 
-## Install composer
-```bash
-curl -sS https://getcomposer.org/installer | php
-```
-## Install guzzle
-```bash
-php composer.phar install
-```
-
-After installing, you need to require Composer's autoloader:
-```php
-require 'vendor/autoload.php';
-```
-
-### License
+## License
     Copyright (c) 2016, Mesosfer.
     All rights reserved.
 

@@ -1,4 +1,4 @@
-# Login #
+# Login Module #
 
 This is sample code for login module in Mesosfer Backend with PHP. 
 For more information about Mesosfer and its features, see [Mesosfer Website][mesosfer.com] and [Mesosfer Documentations][docs].
