@@ -11,11 +11,17 @@ $password = $_POST['password'];
 
 $client = new \GuzzleHttp\Client();
 
-$resRegister = $client->request('POST', 'https://api.mesosfer.com/api/v2/users', [
-    'json'    => ['firstname' => $firstname, 'lastname' => $lastname, 'email' => $email, 'password' => $password],
-    'headers' => ['X-Mesosfer-AppId' => APP_ID, 'X-Mesosfer-AppKey' => APP_KEY]
-]);
+try{
+	$resRegister = $client->request('POST', 'https://api.mesosfer.com/api/v2/users', [
+	    'json'    => ['firstname' => $firstname, 'lastname' => $lastname, 'email' => $email, 'password' => $password],
+	    'headers' => ['X-Mesosfer-AppId' => APP_ID, 'X-Mesosfer-AppKey' => APP_KEY]
+	]);	
+	$bodyRegister = (string) $resRegister->getBody();
+	$register = json_decode($bodyRegister);
+	print_r($register);
+}
+catch(Exception $e){
+	echo $e->getMessage();
+}
 
-$bodyRegister = (string) $resRegister->getBody();
-$register = json_decode($bodyRegister);
-print_r($register);
+

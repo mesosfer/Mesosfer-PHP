@@ -9,11 +9,16 @@ $password = $_POST['password'];
 
 $client = new \GuzzleHttp\Client();
 
-$respAuth = $client->request('POST', 'https://api.mesosfer.com/api/v2/users/signin', [
-    'json'    => ['email' => $email, 'password' => $password],
-    'headers' => ['X-Mesosfer-AppId' => APP_ID, 'X-Mesosfer-AppKey' => APP_KEY]
-]);
+try{
+	$respAuth = $client->request('POST', 'https://api.mesosfer.com/api/v2/users/signin', [
+	    'json'    => ['email' => $email, 'password' => $password],
+	    'headers' => ['X-Mesosfer-AppId' => APP_ID, 'X-Mesosfer-AppKey' => APP_KEY]
+	]);
 
-$bodyAuth = (string) $respAuth->getBody();
-$auth = json_decode($bodyAuth);
-print_r($auth);
+	$bodyAuth = (string) $respAuth->getBody();
+	$auth = json_decode($bodyAuth);
+	print_r($auth);
+}
+catch(Exception $e){
+	echo $e->getMessage();
+}
